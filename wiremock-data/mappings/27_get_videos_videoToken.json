@@ -1,0 +1,23 @@
+{
+  "name": "GET /videos/{videoToken}",
+  "priority": 10,
+  "request": {
+    "method": "GET",
+    "urlPathPattern": "^/videos/[^/]+$",
+    "headers": {
+      "Authorization": {
+        "matches": ".+"
+      }
+    }
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "transformers": [
+      "response-template"
+    ],
+    "body": "{\n  \"token\": \"{{randomValue type='ALPHANUMERIC' length=12}}\",\n  \"urls\": {\n    \"mp4\": \"{{randomValue type='ALPHANUMERIC' length=12}}\",\n    \"hls\": \"{{randomValue type='ALPHANUMERIC' length=12}}\",\n    \"download\": \"{{randomValue type='ALPHANUMERIC' length=12}}\"\n  },\n  \"thumbnail\": {\n    \"url\": \"{{randomValue type='ALPHANUMERIC' length=12}}\"\n  },\n  \"width\": {{randomValue type='NUMERIC' length=4}},\n  \"height\": {{randomValue type='NUMERIC' length=4}},\n  \"duration\": {{randomValue type='NUMERIC' length=4}}\n}"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "name": "GET /updates",
+  "priority": 10,
+  "request": {
+    "method": "GET",
+    "urlPathPattern": "^/updates$",
+    "headers": {
+      "Authorization": {
+        "matches": ".+"
+      }
+    }
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "transformers": [
+      "response-template"
+    ],
+    "body": "{\n  \"updates\": [\n    {\n      \"update_type\": \"{{randomValue type='ALPHANUMERIC' length=12}}\",\n      \"timestamp\": {{randomValue type='NUMERIC' length=4}},\n      \"message\": {\n        \"sender\": {\n          \"user_id\": {{randomValue type='NUMERIC' length=4}},\n          \"first_name\": \"{{randomValue type='ALPHANUMERIC' length=12}}\",\n          \"last_name\": \"{{randomValue type='ALPHANUMERIC' length=12}}\",\n          \"username\": \"{{randomValue type='ALPHANUMERIC' length=12}}\",\n          \"is_bot\": true,\n          \"last_activity_time\": {{randomValue type='NUMERIC' length=4}},\n          \"name\": \"{{randomValue type='ALPHANUMERIC' length=12}}\"\n        },\n        \"recipient\": {\n          \"chat_id\": {{randomValue type='NUMERIC' length=4}},\n          \"chat_type\": \"{{randomValue type='ALPHANUMERIC' length=12}}\",\n          \"user_id\": {{randomValue type='NUMERIC' length=4}}\n        },\n        \"timestamp\": {{randomValue type='NUMERIC' length=4}},\n        \"link\": {\n          \"type\": \"forward\",\n          \"sender\": {\n            \"user_id\": {{randomValue type='NUMERIC' length=4}},\n            \"first_name\": \"{{randomValue type='ALPHANUMERIC' length=12}}\",\n            \"last_name\": \"{{randomValue type='ALPHANUMERIC' length=12}}\",\n            \"username\": \"{{randomValue type='ALPHANUMERIC' length=12}}\",\n            \"is_bot\": true,\n            \"last_activity_time\": {{randomValue type='NUMERIC' length=4}},\n            \"name\": \"{{randomValue type='ALPHANUMERIC' length=12}}\"\n          },\n          \"chat_id\": {{randomValue type='NUMERIC' length=4}},\n          \"message\": {\n            \"mid\": \"{{randomValue type='ALPHANUMERIC' length=12}}\",\n            \"seq\": {{randomValue type='NUMERIC' length=4}},\n            \"text\": \"{{randomValue type='ALPHANUMERIC' length=12}}\",\n            \"attachments\": [\n              {}\n            ],\n            \"markup\": [\n              {}\n            ]\n          }\n        },\n        \"body\": {\n          \"mid\": \"{{randomValue type='ALPHANUMERIC' length=12}}\",\n          \"seq\": {{randomValue type='NUMERIC' length=4}},\n          \"text\": \"{{randomValue type='ALPHANUMERIC' length=12}}\",\n          \"attachments\": [\n            {\n              \"type\": {},\n              \"payload\": {},\n              \"filename\": {},\n              \"size\": {},\n              \"width\": {},\n              \"height\": {},\n              \"duration\": {},\n              \"thumbnail\": {},\n              \"title\": {},\n              \"description\": {},\n              \"image_url\": {},\n              \"latitude\": {},\n              \"longitude\": {}\n            }\n          ],\n          \"markup\": [\n            {\n              \"type\": {},\n              \"from\": {},\n              \"length\": {},\n              \"user_link\": {},\n              \"user_id\": {}\n            }\n          ]\n        },\n        \"stat\": {\n          \"views\": {{randomValue type='NUMERIC' length=4}}\n        },\n        \"url\": \"{{randomValue type='ALPHANUMERIC' length=12}}\"\n      },\n      \"user_locale\": \"{{randomValue type='ALPHANUMERIC' length=12}}\"\n    }\n  ],\n  \"marker\": {{randomValue type='NUMERIC' length=4}}\n}"
+  }
+}

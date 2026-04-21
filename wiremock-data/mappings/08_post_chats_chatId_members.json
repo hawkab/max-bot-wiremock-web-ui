@@ -1,0 +1,23 @@
+{
+  "name": "POST /chats/{chatId}/members",
+  "priority": 10,
+  "request": {
+    "method": "POST",
+    "urlPathPattern": "^/chats/[^/]+/members$",
+    "headers": {
+      "Authorization": {
+        "matches": ".+"
+      }
+    }
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "transformers": [
+      "response-template"
+    ],
+    "body": "{\n  \"success\": true,\n  \"message\": \"{{randomValue type='ALPHANUMERIC' length=12}}\",\n  \"failed_user_ids\": [\n    {{randomValue type='NUMERIC' length=4}}\n  ],\n  \"failed_user_details\": [\n    {\n      \"user_id\": {{randomValue type='NUMERIC' length=4}},\n      \"message\": \"{{randomValue type='ALPHANUMERIC' length=12}}\",\n      \"code\": \"{{randomValue type='ALPHANUMERIC' length=12}}\"\n    }\n  ]\n}"
+  }
+}

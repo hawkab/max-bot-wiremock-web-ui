@@ -1,0 +1,23 @@
+{
+  "name": "POST /uploads",
+  "priority": 10,
+  "request": {
+    "method": "POST",
+    "urlPathPattern": "^/uploads$",
+    "headers": {
+      "Authorization": {
+        "matches": ".+"
+      }
+    }
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "transformers": [
+      "response-template"
+    ],
+    "body": "{\n  \"url\": \"{{randomValue type='ALPHANUMERIC' length=12}}\",\n  \"token\": \"{{randomValue type='ALPHANUMERIC' length=12}}\"\n}"
+  }
+}

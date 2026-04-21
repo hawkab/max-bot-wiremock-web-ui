@@ -1,0 +1,23 @@
+{
+  "name": "GET /subscriptions",
+  "priority": 10,
+  "request": {
+    "method": "GET",
+    "urlPathPattern": "^/subscriptions$",
+    "headers": {
+      "Authorization": {
+        "matches": ".+"
+      }
+    }
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "transformers": [
+      "response-template"
+    ],
+    "body": "{\n  \"subscriptions\": [\n    {\n      \"url\": \"{{randomValue type='ALPHANUMERIC' length=12}}\",\n      \"update_types\": [\n        \"{{randomValue type='ALPHANUMERIC' length=12}}\"\n      ],\n      \"secret\": \"{{randomValue type='ALPHANUMERIC' length=12}}\"\n    }\n  ]\n}"
+  }
+}

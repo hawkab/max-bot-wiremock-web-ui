@@ -1,0 +1,23 @@
+{
+  "name": "DELETE /chats/{chatId}/members/me",
+  "priority": 10,
+  "request": {
+    "method": "DELETE",
+    "urlPathPattern": "^/chats/[^/]+/members/me$",
+    "headers": {
+      "Authorization": {
+        "matches": ".+"
+      }
+    }
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "transformers": [
+      "response-template"
+    ],
+    "body": "{\n  \"success\": true,\n  \"message\": \"{{randomValue type='ALPHANUMERIC' length=12}}\"\n}"
+  }
+}

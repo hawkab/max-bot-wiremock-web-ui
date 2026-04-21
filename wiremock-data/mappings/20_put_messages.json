@@ -1,0 +1,23 @@
+{
+  "name": "PUT /messages",
+  "priority": 10,
+  "request": {
+    "method": "PUT",
+    "urlPathPattern": "^/messages$",
+    "headers": {
+      "Authorization": {
+        "matches": ".+"
+      }
+    }
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "transformers": [
+      "response-template"
+    ],
+    "body": "{\n  \"success\": true,\n  \"message\": \"{{randomValue type='ALPHANUMERIC' length=12}}\"\n}"
+  }
+}

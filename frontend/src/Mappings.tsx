@@ -1,0 +1,3 @@
+// Author: g.olshansky (c) 2026
+
+export { default } from "./pages/MappingsPage";

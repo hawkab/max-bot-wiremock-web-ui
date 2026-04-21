@@ -1,0 +1,23 @@
+{
+  "name": "GET /chats/{chatId}/members/admins",
+  "priority": 10,
+  "request": {
+    "method": "GET",
+    "urlPathPattern": "^/chats/[^/]+/members/admins$",
+    "headers": {
+      "Authorization": {
+        "matches": ".+"
+      }
+    }
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "transformers": [
+      "response-template"
+    ],
+    "body": "{\n  \"members\": [\n    {\n      \"user_id\": {{randomValue type='NUMERIC' length=4}},\n      \"first_name\": \"{{randomValue type='ALPHANUMERIC' length=12}}\",\n      \"last_name\": \"{{randomValue type='ALPHANUMERIC' length=12}}\",\n      \"username\": \"{{randomValue type='ALPHANUMERIC' length=12}}\",\n      \"is_bot\": true,\n      \"last_activity_time\": {{randomValue type='NUMERIC' length=4}},\n      \"name\": \"{{randomValue type='ALPHANUMERIC' length=12}}\",\n      \"description\": \"{{randomValue type='ALPHANUMERIC' length=12}}\",\n      \"avatar_url\": \"{{randomValue type='ALPHANUMERIC' length=12}}\",\n      \"full_avatar_url\": \"{{randomValue type='ALPHANUMERIC' length=12}}\",\n      \"last_access_time\": {{randomValue type='NUMERIC' length=4}},\n      \"is_owner\": true,\n      \"is_admin\": true,\n      \"join_time\": {{randomValue type='NUMERIC' length=4}},\n      \"permissions\": [\n        {\n          \"value\": \"{{randomValue type='ALPHANUMERIC' length=8}}\"\n        }\n      ],\n      \"alias\": \"{{randomValue type='ALPHANUMERIC' length=12}}\"\n    }\n  ],\n  \"marker\": {{randomValue type='NUMERIC' length=4}}\n}"
+  }
+}
