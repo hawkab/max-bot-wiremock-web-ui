@@ -1,4 +1,4 @@
-# WireMock Web UI
+# WireMock Web UI + MAX API mocks
 
 Web-интерфейс для управления WireMock: просмотр логов запросов, редактирование маппингов
 
